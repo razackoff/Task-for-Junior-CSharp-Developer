@@ -9,7 +9,8 @@ namespace Task_for_Junior_CSharp_Developer.Models
 
         public void Send()
         {
-            return;
+            Console.WriteLine(PhoneNumber);
+            Console.Write(Sms);
         }
     }
 }
