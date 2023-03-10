@@ -4,9 +4,11 @@
     {
         public Guid TransactionID { get; set; }
         public string PhoneNumber { get; set; }
-        public string ProductСategory { get; set; }
+        public string Status { get; set; }
+        public string ProductName { get; set; }
         public int InstallmentRange { get; set; }
         public decimal ProductCost { get; set; }
+<<<<<<< HEAD
         public decimal summa { get; set; }
         
         public void Handle()
@@ -26,5 +28,8 @@
                 $"Product Cost = {summa}";
             smsSender.Send();
         }
+=======
+
+>>>>>>> 3495fb442bf8eae7e06aacb020b555a29e4e7fbb
     }
 }
