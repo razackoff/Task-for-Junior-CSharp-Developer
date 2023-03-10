@@ -10,7 +10,7 @@ namespace Task_for_Junior_CSharp_Developer.Controllers
     {
         private List<PurchaseTransaction> purchases;
         [HttpGet]
-        public async Task<ActionResult<Guid>> Purchase_Transaction
+        public async Task<ActionResult> Purchase_Transaction
             ([FromBody] PurchaseTransactionDto purchaseTransactionDto)
         {
             PurchaseTransaction purchaseTransaction = new PurchaseTransaction();
@@ -20,6 +20,17 @@ namespace Task_for_Junior_CSharp_Developer.Controllers
             purchaseTransaction.ProductCost = purchaseTransactionDto.productCost;
             purchaseTransaction.InstallmentRange = purchaseTransactionDto.installmentRange;
             return Ok("successfully");
+        }
+        [HttpGet("getget")]
+        public async Task<ActionResult> Puon
+            ([FromBody] PurchaseTransactionDto purchaseTransactionDto)
+        {
+            InstallmentHandler installmentHandler = new InstallmentHandler();
+            installmentHandler.price = purchaseTransactionDto.productCost;
+            installmentHandler.installmentRange = purchaseTransactionDto.installmentRange;
+            installmentHandler.productСategory = purchaseTransactionDto.productСategory;
+            decimal summa = installmentHandler.GetInstallment();
+            return Ok(summa);
         }
     }
 }

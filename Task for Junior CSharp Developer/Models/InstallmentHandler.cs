@@ -11,7 +11,7 @@ namespace Task_for_Junior_CSharp_Developer.Models
         private decimal installmentProcent = 0;
         
 
-        public decimal GetInstallment(decimal price) 
+        public decimal GetInstallment() 
         {
             if(installmentRange == 3)
             {
@@ -37,34 +37,35 @@ namespace Task_for_Junior_CSharp_Developer.Models
             {
                 installmentRange = 6;
             }
-            else
+            /*else
             {
                 throw new NotFoundException();
-            }
+            }*/
             if(productСategory == "Smartphone")
             {
                 if(installmentRange > 3)
                 {
-                    installmentProcent = 3 * installmentRange - 3;
+                    installmentProcent = 3 * (installmentRange - 3);
                 }
-
+                Console.WriteLine(installmentRange.ToString());
             }
             else if(productСategory == "Computer")
             {
                 if (installmentRange > 4)
                 {
-                    installmentProcent = 4 * installmentRange - 4;
+                    installmentProcent = 4 * (installmentRange - 4);
                 }
             }
             else if(productСategory == "TV")
             {
                 if (installmentRange > 5)
                 {
-                    installmentProcent = 5 * installmentRange - 5;
+                    installmentProcent = 5 * (installmentRange - 5);
                 }
             }
+
             summa = price;
-            summa = price / 100 * installmentProcent;
+            summa += price / 100 * installmentProcent;
             return summa;
         }
     }
