@@ -8,7 +8,7 @@ namespace Task_for_Junior_CSharp_Developer.Controllers
     [ApiController]
     public class TransactionController : ControllerBase
     {
-        private List<PurchaseTransaction> purchases;
+        private List<PurchaseTransaction> purchases = new List<PurchaseTransaction>();
         [HttpGet("Buy")]
         public async Task<ActionResult> Purchase_Transaction
             ([FromBody] PurchaseTransactionDto purchaseTransactionDto)
@@ -20,6 +20,7 @@ namespace Task_for_Junior_CSharp_Developer.Controllers
             purchaseTransaction.ProductCost = purchaseTransactionDto.productCost;
             purchaseTransaction.InstallmentRange = purchaseTransactionDto.installmentRange;
             purchaseTransaction.Handle();
+            purchases.Add(purchaseTransaction);
             return Ok("Ok");
         }
     }
